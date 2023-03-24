@@ -1,4 +1,4 @@
-:set cursorline 0x04. C - More functions, more nested loops
+:set cursorline:set cursorline 0x04. C - More functions, more nested loops
 
 1. `0-isupper.c` 
 2. `1-isdigit.c` 
