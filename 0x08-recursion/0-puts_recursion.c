@@ -1,6 +1,5 @@
 #include "main.h"
 /**
- *
  * _puts_recursion - calls itself from inside, the same function;
  * @s: capture
  *
