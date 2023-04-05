@@ -2,7 +2,6 @@
 /**
  * _puts_recursion - calls itself from inside, the same function;
  * @s: capture
- *
  * Return: a string, followed by a new line
  *
  */
