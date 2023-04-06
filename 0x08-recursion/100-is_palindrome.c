@@ -8,11 +8,11 @@
  * @s: captured string
  *
  * Return: string length
- * 
+ *
  * check_pal - palindrome checker
  * @s: captured string
  * @i: performs same action on every item
- * @len: captured length
+ * @len: captured length string
  *
  * Return: sequence that reads the same backwards as forwards
  */
