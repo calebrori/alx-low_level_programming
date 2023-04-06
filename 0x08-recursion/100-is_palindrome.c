@@ -10,7 +10,7 @@
  * Return: string length
  *
  * check_pal - palindrome checker
- * @s: captured string
+ * @s: captured recursive string
  * @i: performs same action on every item
  * @len: captured length string
  *
