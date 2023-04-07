@@ -1,4 +1,4 @@
-0x08-recursion
+###0x08-recursion
 
 1. `0-puts_recursion.c - function that prints a string, followed by a new line` 
 2. `1-print_rev_recursion.c - function that prints a string in reverse` 
