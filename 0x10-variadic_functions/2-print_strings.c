@@ -8,7 +8,7 @@
  * @n: number of strings passed to the function
  * @...: number of strings to be printed
  *
- * Return: no print If separator is NULL, If strings is NULL, (nil) is printed*/
+ * Description: no print If separator is NULL, If strings is NULL, (nil) is printed*/
 
 void print_strings(const char *separator, const unsigned int n, ...)
 {
