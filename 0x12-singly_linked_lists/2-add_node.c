@@ -4,6 +4,23 @@
 #include "lists.h"
 
 /**
+* _strlen - returns the length of a string
+* @s : s is a character
+* Return: value is p
+*/
+int _strlen(const char *s)
+{
+	int i = 0;
+
+
+	while (s[i] != '\0')
+	{
+	p++;
+	}
+	return (p);
+}
+
+/**
  * add_node - adds a new node at the beginning of a linked list
  * @head: double pointer to the list_t list
  * @str: new string to add in the node
