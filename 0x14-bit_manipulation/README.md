@@ -1,0 +1,10 @@
+## 0x14-bit_manipulation
+1. `0-binary_to_uint.c` - `function that converts a binary number to an unsigned int`
+2. `1-print_binary.c` - `function that prints the binary representation of a number`
+3. `2-get_bit.c` - `function that returns the value of a bit at a given index`
+4. `3-set_bit.c` - `function that sets the value of a bit to 1 at a given index`
+5. `4-clear_bit.c` - `function that sets the value of a bit to 0 at a given index`
+6. `5-flip_bits.c` - `function that returns the number of bits you would need to flip to get from one number to another`
+7. `100-get_endianness.c` - `function that checks the endianness`
+8. `101-password` - `Find the password for this program`
+
