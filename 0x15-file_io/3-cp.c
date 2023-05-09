@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -50,19 +51,22 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (read_count == -1)
+	if
+		(read_count == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	if (close(fd_from) == -1)
+	if
+		(close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 
-	if (close(fd_to) == -1)
+	if
+		(close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
