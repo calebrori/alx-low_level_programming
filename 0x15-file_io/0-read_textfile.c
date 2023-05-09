@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 /*
+*Desciption: a function that reads a text file and prints it to the POSIX standard output
 *read_textfile - function that reads a text file and prints it
 *@filename: name of the file to be read
 *@letters: number of letters
