@@ -2,16 +2,13 @@
 #include <stdlib.h>
 
 /*
-*read_textfile - function that reads a text file and prints it
+* read_textfile - function that reads a text file and prints it
 *
-* Desription: this program reads a text file and prints it
-*@filename: name of the file to be read
-*@letters: number of letters
+* @filename: name of the file to be read
+* @letters: number of letters
 
-*Return: actual number of letters it could read and print
+* Return: actual number of letters it could read and print
 */
-
-/*reads a text file and prints it */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t file_descriptor, length, check;
