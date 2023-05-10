@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
 	char buffer[BUFFER_SIZE];
-
+	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	if (argc != 3)
 	{
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
