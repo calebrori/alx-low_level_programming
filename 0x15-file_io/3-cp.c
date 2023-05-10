@@ -17,36 +17,47 @@
 
 int main(int argc, char *argv[])
 {
-if (argc != 3) {
+if (argc != 3)
+	{
 	printf("Usage: %s <file_from> <file_to>\n", argv[0]);
-	return 1;
+	return (1);
 	}
 
 	FILE *f1 = fopen(argv[1], "rb");
-	if (f1 == NULL) {
+
+	if (f1 == NULL)
+
+	{
 	printf("Error: Cannot read from file %s\n", argv[1]);
-	return 2;
+	return (2);
 	}
 
 	FILE *f2 = fopen(argv[2], "wb");
-	if (f2 == NULL) {
+
+	if (f2 == NULL)
+
+	{
 	printf("Error: Cannot write to file %s\n", argv[2]);
 	fclose(f1);
-	return 3;
+	return (3);
 	}
 
 	char buffer[BUFFER_SIZE];
 	size_t count;
-	while ((count = fread(buffer, 1, BUFFER_SIZE, f1)) > 0) {
-	if (fwrite(buffer, 1, count, f2) != count) {
+
+	while ((count = fread(buffer, 1, BUFFER_SIZE, f1)) > 0)
+
+	{
+	if (fwrite(buffer, 1, count, f2) != count)
+	{
 		printf("Error: Cannot write to file %s\n", argv[2]);
 		fclose(f1);
-		fclose(f2);
-		return 3;
+			fclose(f2);
+		return (3);
 	}
 	}
 
-	fclose(f1);
-	fclose(f2);
-	return 0;
+fclose(f1);
+fclose(f2);
+return (0);
 }
