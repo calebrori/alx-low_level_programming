@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -7,7 +6,6 @@
 #include <sys/stat.h>
 
 #define BUFFER_SIZE 1024
-
 /**
  * main - copies the content of a file to another file
  * @argc: number of arguments passed to the program
@@ -30,8 +28,7 @@ int main(int argc, char *argv[])
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s
-			or file does not exist\n", argv[1]);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
