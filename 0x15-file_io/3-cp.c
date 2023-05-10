@@ -17,44 +17,36 @@
 
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to;
+if (argc != 3) {
+	printf("Usage: %s <file_from> <file_to>\n", argv[0]);
+	return 1;
+	}
+
+	FILE *f1 = fopen(argv[1], "rb");
+	if (f1 == NULL) {
+	printf("Error: Cannot read from file %s\n", argv[1]);
+	return 2;
+	}
+
+	FILE *f2 = fopen(argv[2], "wb");
+	if (f2 == NULL) {
+	printf("Error: Cannot write to file %s\n", argv[2]);
+	fclose(f1);
+	return 3;
+	}
+
 	char buffer[BUFFER_SIZE];
-	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-
-	if (argc != 3)
-	{
-	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-	exit(97);
-	}
-
-	fd_from = open(argv[1], O_RDONLY);
-	if (fd_from == -1)
-	{
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd_to == -1)
-	{
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-	exit(99);
-	}
-
-	while (read(fd_from, buffer, BUFFER_SIZE))
-	{
-	if (write(fd_to, buffer, BUFFER_SIZE) == -1)
-	{
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-	exit(99);
+	size_t count;
+	while ((count = fread(buffer, 1, BUFFER_SIZE, f1)) > 0) {
+	if (fwrite(buffer, 1, count, f2) != count) {
+		printf("Error: Cannot write to file %s\n", argv[2]);
+		fclose(f1);
+		fclose(f2);
+		return 3;
 	}
 	}
 
-	if (close(fd_from) == -1 || close(fd_to) == -1)
-	{
-	dprintf(STDERR_FILENO, "Error: Can't close file descriptor\n");
-	exit(100);
-	}
-
-	return (0);
+	fclose(f1);
+	fclose(f2);
+	return 0;
 }
