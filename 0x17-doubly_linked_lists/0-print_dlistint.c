@@ -1,6 +1,6 @@
 /**
  * print_dlistint - function that prints all the elements of a list
- * h: pointer to node
+ * @h: pointer to node
  *
  * Return: the number of nodes
  */
