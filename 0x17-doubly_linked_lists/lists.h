@@ -12,6 +12,8 @@
  *
  * Description: doubly linked list node structure
  *
+ * author: Caleb Chacha
+ *
  */
 typedef struct dlistint_s
 {
