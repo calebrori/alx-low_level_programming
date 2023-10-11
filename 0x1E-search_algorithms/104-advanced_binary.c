@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * rec_search - searches and return the index 
+ * rec_search - searches and return the index
  *              of the first value in the array
  *
  * @array: pointer
