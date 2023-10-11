@@ -3,14 +3,14 @@
 
 /**
   * jump_search - function that searches for a value
-  *				in a sorted array of integers 
-  * @array: pointer 
+  *		in a sorted array of integers
+  * @array: pointer
   * @size: number of elements
   * @value: value to search for
   *
   * Return: -1 if the value is not present or the array is NULL
   */
-  
+
 int jump_search(int *array, size_t size, int value)
 {
 	int index, c, d, initial;
