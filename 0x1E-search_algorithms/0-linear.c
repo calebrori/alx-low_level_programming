@@ -2,6 +2,7 @@
 
 /**
  * linear_search - function that searches for a value in an array
+ *
  * @array: A pointer
  * @size: number of elements in array
  * @value: value to search for.
