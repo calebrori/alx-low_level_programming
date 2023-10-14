@@ -8,44 +8,35 @@
  * @list: input
  * @size: array size
  * @value: search value
- * Return: -1 If the value is not present
+ * Return: If the value is not present or the head of the list is NULL, NULL
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t prime, c, d;
-	listint_t *prev;
+	size_t post, post_size;
+	listint_t *node, *jump;
 
 	if (list == NULL || size == 0)
 		return (NULL);
 
-	d = (size_t)sqrt((double)size);
-	prime = 0;
-	c = 0;
-
-	do {
-		prev = list;
-		c++;
-		prime = c * d;
-
-		while (list->next && list->prime < prime)
-			list = list->next;
-
-		if (list->next == NULL && prime != list->prime)
-			prime = list->prime;
-
-		printf("Value checked at prime [%d] = [%d]\n", (int)prime, list->n);
-
-	} while (prime < size && list->next && list->n < value);
-
-	printf("Value found between primees ");
-	printf("[%d] and [%d]\n", (int)prev->prime, (int)list->prime);
-
-	for (; prev && prev->prime <= list->prime; prev = prev->next)
+	post = 0;
+	post_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
 	{
-		printf("Value checked at prime [%d] = [%d]\n", (int)prev->prime, prev->n);
-		if (prev->n == value)
-			return (prev);
+		node = jump;
+		for (post += post_size; jump->index < post; jump = jump->next)
+		{
+			if (jump->index + 1 == size)
+				break;
+		}
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
 	}
 
-	return (NULL);
+	printf("Value found between indexes [%ld] and [%ld]\n",
+			node->index, jump->index);
+
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+
+	return (node->n == value ? node : NULL);
 }
