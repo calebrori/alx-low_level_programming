@@ -12,35 +12,34 @@
 int rec_search(int *array, size_t size, int value)
 {
 	size_t half = size / 2;
-	size_t p;
+	size_t i;
 
 	if (array == NULL || size == 0)
 		return (-1);
 
 	printf("Searching in array");
 
-	for (p = 0; p < size; p++)
-		printf("%s %d", (p == 0) ? ":" : ",", array[p]);
+	for (i = 0; i < size; i++)
+		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
 
 	printf("\n");
 
-	if (even && size % 2 == 0)
-		even--;
+	if (half && size % 2 == 0)
+		half--;
 
-	if (value == array[even])
+	if (value == array[half])
 	{
-		if (even > 0)
-			return (rec_search(array, even + 1, value));
-		return ((int)even);
+		if (half > 0)
+			return (rec_search(array, half + 1, value));
+		return ((int)half);
 	}
 
-	if (value < array[even])
-		return (rec_search(array, even + 1, value));
+	if (value < array[half])
+		return (rec_search(array, half + 1, value));
 
-	even++;
-	return (rec_search(array + even, size - even, value) + even);
+	half++;
+	return (rec_search(array + half, size - half, value) + half);
 }
-
 /**
  * advanced_binary - calls to rec_search
  * @array: pointer
@@ -50,12 +49,12 @@ int rec_search(int *array, size_t size, int value)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	int token;
+	int index;
 
-	token = rec_search(array, size, value);
+	index = rec_search(array, size, value);
 
-	if (token >= 0 && array[token] != value)
+	if (index >= 0 && array[index] != value)
 		return (-1);
 
-	return (token);
+	return (index);
 }
